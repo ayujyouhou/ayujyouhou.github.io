@@ -7,24 +7,26 @@ import IconLink from "../components/IconLink.astro";
 
 const reel = [
   { date: "2025-09-02", text: "サイト基盤を Astro + Tailwind で構築" },
-  { date: "2025-09-02", text: "トップにヒーロー・リールを追加" },
+  { date: "2025-09-02", text: "トップにhero・リールを追加" },
 ];
 ---
 <Layout title="Home">
   <Hero title="Ayu" subtitle="Engineer" />
 
   <section class="mt-8">
-    <h2 class="text-xl font-semibold mb-3">Links</h2>
+    <h2 class="text-3xl font-semibold mb-3">Links</h2>
     <div class="flex flex-wrap gap-3">
       <IconLink href="https://github.com/ayujyouhou" src="/icons/github.png" label="GitHub" />
       <IconLink href="https://www.instagram.com/4957.ayu?igsh=MWh4aGV3cmVsaXRlYg%3D%3D&utm_source=qr" src="/icons/instagram.avif" label="Instagram" />
+	  <IconLink href="https://note.com/suisuiren" src="/icons/note.png" label="note" />
+	  <IconLink href="https://onlinemathcontest.com/users/Suirenn" src="/icons/OMC.jpg" label="OMC" />
     </div>
   </section>
 
   <Reel items={reel} />
 
 <section class="mt-10">
-  <h2 class="text-xl font-semibold">About me</h2>
+  <h2 class="text-3xl font-semibold">About me</h2>
   <p class="mt-2 text-gray-700">自己紹介文。趣味やスキル、今やっていることなど。</p>
   <a href="/about" class="inline-block mt-3 text-sm underline">もっと見る →</a>
 </section>
