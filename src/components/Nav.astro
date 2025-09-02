@@ -1,0 +1,36 @@
+---
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/gallery", label: "Gallery" }, // あとで作る用
+  { href: "/hobbies", label: "Hobbies" }, // あとで作る用（音楽/アニメ/ゲーム）
+  // { href: "/blog", label: "Blog" },    // 使うなら有効化
+];
+---
+<nav class="fixed top-4 left-4 z-50">
+  <details class="group">
+    <summary
+      class="list-none inline-flex items-center justify-center size-10 rounded-xl border bg-white/70 backdrop-blur hover:shadow transition cursor-pointer"
+      aria-label="Open menu"
+    >
+      <!-- ハンバーガーアイコン -->
+      <svg viewBox="0 0 24 24" class="size-6">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </summary>
+
+    <!-- パネル -->
+    <div class="mt-2 w-44 rounded-2xl border bg-white/90 backdrop-blur p-2 shadow-lg">
+      <ul class="space-y-1">
+        {links.map(l => (
+          <li>
+            <a href={l.href}
+               class="block rounded-lg px-3 py-2 text-sm hover:bg-black/5">
+              {l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </details>
+</nav>
