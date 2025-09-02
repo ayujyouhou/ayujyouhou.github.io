@@ -1,0 +1,20 @@
+---
+import Nav from "../components/Nav.astro";
+const { title } = Astro.props;
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title ? `${title} • Ayu` : "Ayu"}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body class="min-h-screen bg-cover bg-center"
+        style="background-image:url('/images/top.webp')">
+    <Nav />  <!-- ← これを追加 -->
+
+    <main class="mx-auto max-w-4xl px-4 py-10">
+      <slot />
+    </main>
+  </body>
+</html>
