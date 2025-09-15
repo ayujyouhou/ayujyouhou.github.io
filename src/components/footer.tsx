@@ -15,7 +15,7 @@ export function Footer() {
           className="text-center"
         >
           <h3 className="text-2xl font-bold mb-4">
-            Let's Create Something Amazing Together
+            Let&apos;s Create Something Amazing Together
           </h3>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             新しいプロジェクトやコラボレーションの機会をお探しでしたら、お気軽にお声がけください。
