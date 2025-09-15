@@ -4,6 +4,7 @@ import { AboutSection } from "@/components/about-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { HobbiesSection } from "@/components/hobbies-section"
 import { BlogSection } from "@/components/blog-section"
+import { ServicesSection } from "@/components/services-section"
 import { ContactSection } from "@/components/contact-section"
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <ProjectsSection />
       <HobbiesSection />
       <BlogSection />
+      <ServicesSection />
       <ContactSection />
     </>
   )
