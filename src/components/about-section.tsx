@@ -33,7 +33,7 @@ const timeline = [
     description: "React + TypeScript + Tailwind CSSでポートフォリオサイトを構築"
   },
   {
-    date: "2024年4月",
+    date: "継続中",
     title: "東京大学理科一類 入学",
     description: "数学・物理・情報科学を中心とした教養科目を受講。経済学も勉強中"
   },
@@ -43,7 +43,7 @@ const timeline = [
     description: "C言語を中心としたシステムプログラミングとアルゴリズム実装を学習"
   },
   {
-    date: "実務経験",
+    date: "最近の実務経験",
     title: "業務効率化ツール開発",
     description: "Dify・LLM・AWSを活用した質問対応Bot・業務効率化ツールの開発"
   }

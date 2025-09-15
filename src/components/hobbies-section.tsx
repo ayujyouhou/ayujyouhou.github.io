@@ -184,7 +184,7 @@ export function HobbiesSection() {
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 max-w-4xl mx-auto border border-blue-200/30 dark:border-blue-700/30">
             <Coffee className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
             <p className="text-lg text-gray-700 dark:text-gray-300 italic">
-              "麻雀の確率計算とオンライン数学コンテスト、どちらも論理的思考を鍛える最高の趣味です。"
+              &ldquo;麻雀の確率計算とオンライン数学コンテスト、どちらも論理的思考を鍛える最高の趣味です。&rdquo;
             </p>
           </div>
         </motion.div>

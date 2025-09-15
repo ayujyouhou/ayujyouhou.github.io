@@ -8,8 +8,35 @@ import { Footer } from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ayu - Portfolio",
-  description: "Engineer & Creator",
+  title: "Ayu - Software Engineer & Student",
+  description: "東京大学理科一類在籍のソフトウェアエンジニア。Next.js、React、C++、Pythonを使用したWebアプリケーション開発と機械学習に取り組んでいます。42Tokyo、麻雀、数学コンテストなど幅広い分野で活動中。",
+  keywords: ["Ayu", "Software Engineer", "東京大学", "Next.js", "React", "TypeScript", "42Tokyo", "Portfolio"],
+  authors: [{ name: "Ayu" }],
+  creator: "Ayu",
+  publisher: "Ayu",
+  robots: "index, follow",
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    url: "https://ayujyouhou.github.io",
+    title: "Ayu - Software Engineer & Student",
+    description: "東京大学理科一類在籍のソフトウェアエンジニア。Next.js、React、機械学習に取り組んでいます。",
+    siteName: "Ayu Portfolio",
+    images: [
+      {
+        url: "/images/profile.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ayu Profile",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ayu - Software Engineer & Student",
+    description: "東京大学理科一類在籍のソフトウェアエンジニア",
+    images: ["/images/profile.jpg"],
+  },
 };
 
 export default function RootLayout({
@@ -18,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="ja" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
