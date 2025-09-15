@@ -64,7 +64,7 @@ export function AboutSection() {
             About Me
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            東京大学理科一類に在籍し、エンジニアとして、アルゴリズム実装からWebアプリケーション開発、機械学習・データ分析まで幅広く学習しています。
+            エンジニアとして、アルゴリズム実装からWebアプリケーション開発、機械学習・データ分析まで幅広く学習しています。
             42Tokyoでの学習を通じてC言語やシステムプログラミングの理解を深め、実務ではLLMやクラウドサービスを活用した業務効率化ツールの開発に取り組んでいます。
           </p>
         </motion.div>
