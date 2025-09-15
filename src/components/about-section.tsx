@@ -33,6 +33,11 @@ const timeline = [
     description: "React + TypeScript + Tailwind CSSでポートフォリオサイトを構築"
   },
   {
+    date: "2024年4月",
+    title: "東京大学理科一類 入学",
+    description: "数学・物理・情報科学を中心とした理系基礎教育を受講。経済学も勉強中"
+  },
+  {
     date: "継続中",
     title: "42Tokyo での学習",
     description: "C言語を中心としたシステムプログラミングとアルゴリズム実装を学習"
@@ -59,7 +64,7 @@ export function AboutSection() {
             About Me
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            エンジニアとして、アルゴリズム実装からWebアプリケーション開発、機械学習・データ分析まで幅広く学習しています。
+            東京大学理科一類に在籍し、エンジニアとして、アルゴリズム実装からWebアプリケーション開発、機械学習・データ分析まで幅広く学習しています。
             42Tokyoでの学習を通じてC言語やシステムプログラミングの理解を深め、実務ではLLMやクラウドサービスを活用した業務効率化ツールの開発に取り組んでいます。
           </p>
         </motion.div>
