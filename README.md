@@ -6,8 +6,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.4-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
 
-東京大学理科一類在籍のソフトウェアエンジニア Ayu のポートフォリオサイトです。モダンなWeb技術を使用して構築された、レスポンシブでアクセシブルなウェブサイトです。
-
+ Ayu のポートフォリオサイトです。
 🌐 **Live Site**: [https://ayujyouhou.github.io/](https://ayujyouhou.github.io/)
 
 ## ✨ Features
@@ -16,10 +15,11 @@
 - **スムーズなアニメーション**: Framer Motion による洗練されたトランジション
 - **ダークモード対応**: システム設定に応じた自動切り替え
 - **レスポンシブデザイン**: モバイルからデスクトップまで最適化
-- **高いパフォーマンス**: Next.js 15 + Static Export による高速表示
+- **高いパフォーマンス**: Next.js 15 + Static Export による高速表示（スマホだとややラグい）
 - **SEO最適化**: メタデータ、OGP、構造化データ対応
 - **アクセシビリティ**: WCAG 2.1準拠のアクセシブルな設計
 - **ブログ機能**: MDX対応の記事投稿システム
+webeditorくらいの機能は実装しようと思っています。
 
 ## 🛠️ Tech Stack
 
