@@ -6,11 +6,19 @@ import { ThemeToggle } from "./theme-toggle"
 
 export function Navigation() {
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/projects", label: "Projects" },
-    { href: "/contact", label: "Contact" },
+    { href: "#about-section", label: "About" },
+    { href: "#projects-section", label: "Projects" },
+    { href: "#hobbies-section", label: "Hobbies" },
+    { href: "#blog-section", label: "Notes" },
+    { href: "#contact-section", label: "Contact" },
   ]
+
+  const handleNavClick = (href: string) => {
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   return (
     <motion.nav
@@ -27,13 +35,13 @@ export function Navigation() {
 
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
+              <button
                 key={item.href}
-                href={item.href}
+                onClick={() => handleNavClick(item.href)}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 {item.label}
-              </Link>
+              </button>
             ))}
           </div>
 
