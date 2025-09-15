@@ -48,32 +48,22 @@ export function ProjectsSection() {
                 className="group"
               >
               <Card className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800">
-                <div className="relative overflow-hidden">
-                  <div 
-                    className="h-48 bg-gradient-to-br from-blue-500 to-purple-600 relative"
-                    style={{
-                      backgroundImage: `url(${project.image})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center'
-                    }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/80 to-purple-600/80" />
-                    <div className="absolute top-4 right-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        project.status === '完了' ? 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300' :
-                        project.status === '進行中' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300' :
-                        'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
-                      }`}>
-                        {project.status}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
-                    {project.title}
+                  <h3 className="text-xl font-bold mb-3">
+                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                      {project.title}
+                    </span>
                   </h3>
+                  
+                  <div className="mb-4">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      project.status === '完了' ? 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300' :
+                      project.status === '進行中' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300' :
+                      'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
+                    }`}>
+                      {project.status}
+                    </span>
+                  </div>
                   
                   <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4">
                     {project.description}
