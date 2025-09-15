@@ -129,7 +129,7 @@ http://localhost:3000
 
 ## 🤝 Contributing
 
-このプロジェクトへの貢献を歓迎します！
+このプロジェクトをぜひまねしてみてください！
 
 1. このリポジトリをフォーク
 2. フィーチャーブランチを作成 (`git checkout -b feature/amazing-feature`)
