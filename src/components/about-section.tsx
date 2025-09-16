@@ -2,27 +2,62 @@
 
 import { motion } from "framer-motion"
 import { Code, Palette, Coffee, Rocket } from "lucide-react"
+import Image from "next/image"
+import { 
+  SiCplusplus,
+  SiPython, 
+  SiC,
+  SiJavascript,
+  SiRuby,
+  SiMysql,
+  SiReact,
+  SiHtml5,
+  SiLatex,
+  SiAstro,
+  SiMermaid,
+  SiAmazonwebservices,
+  SiDocker,
+  SiGithub
+} from "react-icons/si"
 
 const skills = [
   {
     icon: Code,
     title: "Programming Languages",
-    items: ["C++", "Python", "C", "JavaScript", "Ruby", "SQL"]
+    items: [
+      { name: "C++", icon: SiCplusplus, color: "#00599C" },
+      { name: "Python", icon: SiPython, color: "#3776AB" },
+      { name: "C", icon: SiC, color: "#A8B9CC" },
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "Ruby", icon: SiRuby, color: "#CC342D" },
+      { name: "SQL", icon: SiMysql, color: "#4479A1" }
+    ]
   },
   {
     icon: Palette, 
     title: "Frontend & Tools",
-    items: ["React", "Astro", "TeX", "Mermaid", "HTML/CSS"]
+    items: [
+      { name: "React", icon: SiReact, color: "#61DAFB" },
+      { name: "Astro", icon: SiAstro, color: "#FF5D01" },
+      { name: "TeX", icon: SiLatex, color: "#008080" },
+      { name: "Mermaid", icon: SiMermaid, color: "#FF3670" },
+      { name: "HTML/CSS", icon: SiHtml5, color: "#E34F26" }
+    ]
+  },
+  {
+    icon: Rocket,
+    title: "Infrastructure & Tools",
+    items: [
+      { name: "AWS (EC2,Lambda, Bedrock ...)", icon: SiAmazonwebservices, color: "#FF9900" },
+      { name: "Docker", icon: SiDocker, color: "#2496ED" },
+      { name: "GitHub", icon: SiGithub, color: "#181717" },
+      { name: "Dify", icon: () => <Image src="/icons/dify.png" width={16} height={16} alt="Dify" className="w-4 h-4" />, color: "#1E40AF" }
+    ]
   },
   {
     icon: Coffee,
     title: "Data & Analysis",
     items: ["機械学習", "データ分析", "アルゴリズム実装"]
-  },
-  {
-    icon: Rocket,
-    title: "Infrastructure & Tools",
-    items: ["AWS (EC2,Lambda, Bedrock ...)", "Docker", "GitHub", "Dify"]
   }
 ]
 
@@ -101,14 +136,37 @@ export function AboutSection() {
                 </h4>
                 
                 <div className="space-y-1">
-                  {skill.items.map((item) => (
-                    <span
-                      key={item}
-                      className="inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm mr-1 mb-1"
-                    >
-                      {item}
-                    </span>
-                  ))}
+                  {skill.items.map((item) => {
+                    if (typeof item === 'string') {
+                      return (
+                        <span
+                          key={item}
+                          className="inline-block bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm mr-1 mb-1"
+                        >
+                          {item}
+                        </span>
+                      );
+                    } else {
+                      const IconComponent = item.icon;
+                      const isFunction = typeof IconComponent === 'function' && IconComponent.name === '';
+                      return (
+                        <span
+                          key={item.name}
+                          className="inline-flex items-center gap-1.5 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm mr-1 mb-1"
+                        >
+                          {isFunction ? (
+                            <IconComponent />
+                          ) : (
+                            <IconComponent 
+                              className="w-4 h-4" 
+                              style={{ color: item.color }}
+                            />
+                          )}
+                          {item.name}
+                        </span>
+                      );
+                    }
+                  })}
                 </div>
               </motion.div>
             ))}
