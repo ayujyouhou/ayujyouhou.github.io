@@ -70,10 +70,10 @@ export function QRModal({ url = 'https://ayujyouhou.github.io', title = 'Ayu Por
       {/* QRコードボタン */}
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center gap-2 px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200"
+        className="text-left px-4 py-2 text-muted-foreground hover:text-foreground hover:bg-accent/50 transition-colors cursor-pointer flex items-center gap-2"
       >
-        <QrCode className="w-5 h-5" />
-        <span className="text-sm font-medium">QRコード</span>
+        <QrCode className="w-4 h-4" />
+        <span>QRコード</span>
       </button>
 
       {/* モーダル */}
