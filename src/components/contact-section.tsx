@@ -9,6 +9,9 @@ import emailjs from "@emailjs/browser"
 import { Mail, Send, CheckCircle, AlertCircle, User, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+// EmailJSの初期化
+emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
+
 // バリデーションスキーマ
 const contactSchema = z.object({
   name: z.string().min(1, "お名前を入力してください").max(50, "お名前は50文字以内で入力してください"),
@@ -37,7 +40,15 @@ export function ContactSection() {
     setSubmitStatus('idle')
 
     try {
-      // EmailJS設定（環境変数から取得）
+      // EmailJS設定の確認
+      console.log('EmailJS config check:', {
+        serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ? '設定済み' : '未設定',
+        toEmail: process.env.NEXT_PUBLIC_YOUR_EMAIL
+      });
+
+      // EmailJS送信
       const result = await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
@@ -51,11 +62,15 @@ export function ContactSection() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       )
 
-      console.log('EmailJS result:', result)
+      console.log('EmailJS送信成功:', result)
       setSubmitStatus('success')
       reset()
     } catch (error) {
-      console.error('EmailJS error:', error)
+      console.error('EmailJS送信エラー:', error)
+      // エラーの詳細を表示
+      if (error instanceof Error) {
+        console.error('エラーメッセージ:', error.message)
+      }
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
