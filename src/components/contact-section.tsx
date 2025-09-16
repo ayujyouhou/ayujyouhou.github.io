@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -9,8 +9,27 @@ import emailjs from "@emailjs/browser"
 import { Mail, Send, CheckCircle, AlertCircle, User, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+// EmailJSの設定値を確認
+const EMAILJS_CONFIG = {
+  serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+  templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+  publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+  toEmail: process.env.NEXT_PUBLIC_YOUR_EMAIL
+}
+
+// デバッグ用ログ出力
+console.log('🌐 EmailJS Config Debug:', {
+  ...EMAILJS_CONFIG,
+  publicKey: EMAILJS_CONFIG.publicKey ? `${EMAILJS_CONFIG.publicKey.slice(0, 4)}***` : 'undefined'
+})
+
 // EmailJSの初期化
-emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
+if (EMAILJS_CONFIG.publicKey) {
+  emailjs.init(EMAILJS_CONFIG.publicKey);
+  console.log('✅ EmailJS initialized with public key')
+} else {
+  console.error('❌ EmailJS Public Key not found!')
+}
 
 // バリデーションスキーマ
 const contactSchema = z.object({
@@ -26,6 +45,23 @@ export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
+  // 環境とEmailJS設定の詳細確認
+  useEffect(() => {
+    console.log('🔍 Environment Check:')
+    console.log('- Location:', typeof window !== 'undefined' ? window.location.href : 'SSR')
+    console.log('- Host:', typeof window !== 'undefined' ? window.location.host : 'SSR')
+    console.log('- Protocol:', typeof window !== 'undefined' ? window.location.protocol : 'SSR')
+    
+    console.log('📧 EmailJS Config Status:')
+    Object.entries(EMAILJS_CONFIG).forEach(([key, value]) => {
+      if (key === 'publicKey' && value) {
+        console.log(`- ${key}: ${value.slice(0, 4)}*** (${value.length} chars)`)
+      } else {
+        console.log(`- ${key}:`, value ? `✅ ${value}` : '❌ undefined')
+      }
+    })
+  }, [])
+
   const {
     register,
     handleSubmit,
@@ -40,37 +76,61 @@ export function ContactSection() {
     setSubmitStatus('idle')
 
     try {
-      // EmailJS設定の確認
-      console.log('EmailJS config check:', {
-        serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ? '設定済み' : '未設定',
-        toEmail: process.env.NEXT_PUBLIC_YOUR_EMAIL
-      });
+      console.log('📮 メール送信開始...')
+      console.log('🕒 送信タイムスタンプ:', new Date().toISOString())
+      console.log('📍 送信元:', window.location.href)
+      
+      // 設定値の最終確認
+      console.log('⚙️ 使用する設定:')
+      console.log('- Service ID:', EMAILJS_CONFIG.serviceId)
+      console.log('- Template ID:', EMAILJS_CONFIG.templateId)
+      console.log('- Public Key:', EMAILJS_CONFIG.publicKey ? 'あり' : 'なし')
+      console.log('- To Email:', EMAILJS_CONFIG.toEmail)
+      
+      // 送信データの確認
+      const emailData = {
+        from_name: data.name,
+        from_email: data.email,
+        subject: data.subject,
+        message: data.message,
+        to_email: EMAILJS_CONFIG.toEmail
+      }
+      console.log('📧 送信データ:', emailData)
+
+      // 必須設定の確認
+      if (!EMAILJS_CONFIG.serviceId || !EMAILJS_CONFIG.templateId || !EMAILJS_CONFIG.publicKey) {
+        throw new Error('EmailJS設定が不完全です: ' + JSON.stringify({
+          serviceId: !!EMAILJS_CONFIG.serviceId,
+          templateId: !!EMAILJS_CONFIG.templateId,
+          publicKey: !!EMAILJS_CONFIG.publicKey
+        }))
+      }
 
       // EmailJS送信
       const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        {
-          from_name: data.name,
-          from_email: data.email,
-          subject: data.subject,
-          message: data.message,
-          to_email: process.env.NEXT_PUBLIC_YOUR_EMAIL!
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        emailData,
+        EMAILJS_CONFIG.publicKey
       )
 
-      console.log('EmailJS送信成功:', result)
+      console.log('✅ EmailJS送信成功:', result)
       setSubmitStatus('success')
       reset()
     } catch (error) {
-      console.error('EmailJS送信エラー:', error)
-      // エラーの詳細を表示
+      console.error('❌ EmailJS送信エラー:', error)
+      
+      // エラーの詳細分析
       if (error instanceof Error) {
         console.error('エラーメッセージ:', error.message)
+        console.error('エラースタック:', error.stack)
       }
+      
+      // ネットワークエラーの可能性をチェック
+      if (typeof error === 'object' && error !== null) {
+        console.error('エラーオブジェクト:', error)
+      }
+      
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
