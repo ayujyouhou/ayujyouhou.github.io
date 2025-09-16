@@ -48,7 +48,7 @@ const skills = [
     icon: Rocket,
     title: "Infrastructure & Tools",
     items: [
-      { name: "AWS (EC2,Lambda, Bedrock ...)", icon: SiAmazonwebservices, color: "#FF9900" },
+      { name: "AWS (EC2, Lambda, Bedrock ...)", icon: SiAmazonwebservices, color: "#FF9900" },
       { name: "Docker", icon: SiDocker, color: "#2496ED" },
       { name: "GitHub", icon: SiGithub, color: "#181717" },
       { name: "Dify", icon: () => <Image src="/icons/dify.png" width={16} height={16} alt="Dify" className="w-4 h-4" />, color: "#1E40AF" }

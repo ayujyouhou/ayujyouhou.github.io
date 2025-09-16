@@ -3,26 +3,30 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
+import { SiGithub, SiInstagram } from "react-icons/si"
 
 interface SocialLink {
   href: string
-  icon: string
+  icon: string | React.ComponentType<{ className?: string; style?: React.CSSProperties }>
   label: string
   username?: string
+  color?: string
 }
 
 const socialLinks: SocialLink[] = [
   {
     href: "https://github.com/ayujyouhou",
-    icon: "/icons/github.png",
+    icon: SiGithub,
     label: "GitHub",
-    username: "@ayujyouhou"
+    username: "@ayujyouhou",
+    color: "#181717"
   },
   {
     href: "https://www.instagram.com/4957.ayu?igsh=MWh4aGV3cmVsaXRlYg%3D%3D&utm_source=qr",
-    icon: "/icons/instagram.avif", 
+    icon: SiInstagram,
     label: "Instagram",
-    username: "@4957.ayu"
+    username: "@4957.ayu",
+    color: "#E4405F"
   }
 ]
 
@@ -65,13 +69,20 @@ export function SocialLinksSection() {
                   className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50"
                 >
                   <div className="flex flex-col items-center text-center">
-                    <div className="relative w-16 h-16 mb-4 overflow-hidden rounded-full">
-                      <Image
-                        src={link.icon}
-                        alt={link.label}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
+                    <div className="relative w-16 h-16 mb-4 overflow-hidden rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+                      {typeof link.icon === 'string' ? (
+                        <Image
+                          src={link.icon}
+                          alt={link.label}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-300"
+                        />
+                      ) : (
+                        <link.icon 
+                          className="w-8 h-8 group-hover:scale-110 transition-transform duration-300"
+                          style={{ color: link.color }}
+                        />
+                      )}
                     </div>
                     
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
