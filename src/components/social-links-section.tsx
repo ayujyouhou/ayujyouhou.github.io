@@ -32,7 +32,7 @@ const socialLinks: SocialLink[] = [
 
 export function SocialLinksSection() {
   return (
-    <section className="py-20 bg-gray-50/50 dark:bg-gray-900/50">
+    <section className="py-20 bg-gradient-to-br from-teal-50 via-white to-emerald-50/30 dark:from-gray-900 dark:via-gray-800 dark:to-teal-900/20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

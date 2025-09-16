@@ -44,7 +44,7 @@ export function BlogSection() {
   const recentPosts = blogPosts.filter(post => !post.featured).slice(0, 2)
 
   return (
-    <section id="blog-section" className="py-20 bg-white dark:bg-gray-900">
+    <section id="blog-section" className="py-20 bg-gradient-to-br from-indigo-50 via-white to-cyan-50/30 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

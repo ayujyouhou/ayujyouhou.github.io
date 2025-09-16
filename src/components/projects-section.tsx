@@ -18,7 +18,7 @@ const projects = [
 
 export function ProjectsSection() {
   return (
-    <section id="projects-section" className="py-20 bg-gray-50/50 dark:bg-gray-900/50">
+    <section id="projects-section" className="py-20 bg-gradient-to-br from-orange-50 via-white to-red-50/30 dark:from-gray-900 dark:via-gray-800 dark:to-orange-900/20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

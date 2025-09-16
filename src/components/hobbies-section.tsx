@@ -57,7 +57,7 @@ const hobbies = [
 
 export function HobbiesSection() {
   return (
-    <section id="hobbies-section" className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900/20">
+    <section id="hobbies-section" className="py-20 bg-gradient-to-br from-yellow-50 via-white to-orange-50/30 dark:from-gray-900 dark:via-gray-800 dark:to-yellow-900/20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
