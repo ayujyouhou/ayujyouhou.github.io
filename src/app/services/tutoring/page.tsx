@@ -223,7 +223,7 @@ export default function TutoringPage() {
               <div className="space-y-4">
                 <div className="flex items-center">
                   <div className="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
-                  <span className="text-gray-700 dark:text-gray-300">東京大学理科一類</span>
+                  <span className="text-gray-700 dark:text-gray-300">公立中学→千葉県立船橋高等学校→東京大学理科一類</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
