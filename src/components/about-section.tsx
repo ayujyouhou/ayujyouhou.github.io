@@ -25,33 +25,33 @@ const skills = [
     icon: Code,
     title: "Programming Languages",
     items: [
-      { name: "C++", icon: SiCplusplus, color: "#00599C" },
-      { name: "Python", icon: SiPython, color: "#3776AB" },
-      { name: "C", icon: SiC, color: "#A8B9CC" },
-      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-      { name: "Ruby", icon: SiRuby, color: "#CC342D" },
-      { name: "SQL", icon: SiMysql, color: "#4479A1" }
+      { name: "C++", icon: SiCplusplus, color: "#00599C", url: "https://isocpp.org/" },
+      { name: "Python", icon: SiPython, color: "#3776AB", url: "https://www.python.org/" },
+      { name: "C", icon: SiC, color: "#A8B9CC", url: "https://en.wikipedia.org/wiki/C_(programming_language)" },
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+      { name: "Ruby", icon: SiRuby, color: "#CC342D", url: "https://www.ruby-lang.org/" },
+      { name: "SQL", icon: SiMysql, color: "#4479A1", url: "https://www.mysql.com/" }
     ]
   },
   {
     icon: Palette, 
     title: "Frontend & Tools",
     items: [
-      { name: "React", icon: SiReact, color: "#61DAFB" },
-      { name: "Astro", icon: SiAstro, color: "#FF5D01" },
-      { name: "TeX", icon: SiLatex, color: "#008080" },
-      { name: "Mermaid", icon: SiMermaid, color: "#FF3670" },
-      { name: "HTML/CSS", icon: SiHtml5, color: "#E34F26" }
+      { name: "React", icon: SiReact, color: "#61DAFB", url: "https://react.dev/" },
+      { name: "Astro", icon: SiAstro, color: "#FF5D01", url: "https://astro.build/" },
+      { name: "TeX", icon: SiLatex, color: "#008080", url: "https://www.latex-project.org/" },
+      { name: "Mermaid", icon: SiMermaid, color: "#FF3670", url: "https://www.mermaidchart.com/" },
+      { name: "HTML/CSS", icon: SiHtml5, color: "#E34F26", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" }
     ]
   },
   {
     icon: Rocket,
     title: "Infrastructure & Tools",
     items: [
-      { name: "AWS (EC2, Lambda, Bedrock ...)", icon: SiAmazonwebservices, color: "#FF9900" },
-      { name: "Docker", icon: SiDocker, color: "#2496ED" },
-      { name: "GitHub", icon: SiGithub, color: "#181717" },
-      { name: "Dify", icon: () => <Image src="/icons/dify.png" width={16} height={16} alt="Dify" className="w-4 h-4" />, color: "#1E40AF" }
+      { name: "AWS (EC2, Lambda, Bedrock ...)", icon: SiAmazonwebservices, color: "#FF9900", url: "https://aws.amazon.com/" },
+      { name: "Docker", icon: SiDocker, color: "#2496ED", url: "https://www.docker.com/" },
+      { name: "GitHub", icon: SiGithub, color: "#181717", url: "https://github.com/" },
+      { name: "Dify", icon: () => <Image src="/icons/dify.png" width={16} height={16} alt="Dify" className="w-4 h-4" />, color: "#1E40AF", url: "https://dify.ai/" }
     ]
   },
   {
@@ -149,11 +149,8 @@ export function AboutSection() {
                     } else {
                       const IconComponent = item.icon;
                       const isFunction = typeof IconComponent === 'function' && IconComponent.name === '';
-                      return (
-                        <span
-                          key={item.name}
-                          className="inline-flex items-center gap-1.5 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm mr-1 mb-1"
-                        >
+                      const skillElement = (
+                        <span className="inline-flex items-center gap-1.5 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm mr-1 mb-1 transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-600">
                           {isFunction ? (
                             <IconComponent />
                           ) : (
@@ -163,6 +160,22 @@ export function AboutSection() {
                             />
                           )}
                           {item.name}
+                        </span>
+                      );
+
+                      return item.url ? (
+                        <a
+                          key={item.name}
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block hover:scale-105 transition-transform duration-200"
+                        >
+                          {skillElement}
+                        </a>
+                      ) : (
+                        <span key={item.name} className="inline-block">
+                          {skillElement}
                         </span>
                       );
                     }
