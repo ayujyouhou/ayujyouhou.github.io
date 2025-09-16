@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ThemeToggle } from "./theme-toggle"
+import { QRModal } from "./qr-modal"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 
@@ -85,7 +86,7 @@ export function Navigation() {
             exit={{ opacity: 0, y: -10 }}
             className="md:hidden py-4 border-t bg-background/95 backdrop-blur-md"
           >
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col">
               {navItems.map((item) => (
                 <button
                   key={item.href}
@@ -95,6 +96,9 @@ export function Navigation() {
                   {item.label}
                 </button>
               ))}
+              
+              {/* QRコード表示ボタン */}
+              <QRModal />
             </div>
           </motion.div>
         )}
