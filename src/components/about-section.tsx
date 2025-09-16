@@ -8,9 +8,11 @@ import {
   SiPython, 
   SiC,
   SiJavascript,
+  SiTypescript,
   SiRuby,
   SiMysql,
   SiReact,
+  SiNextdotjs,
   SiHtml5,
   SiLatex,
   SiAstro,
@@ -29,6 +31,7 @@ const skills = [
       { name: "Python", icon: SiPython, color: "#3776AB", url: "https://www.python.org/" },
       { name: "C", icon: SiC, color: "#A8B9CC", url: "https://en.wikipedia.org/wiki/C_(programming_language)" },
       { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6", url: "https://www.typescriptlang.org/" },
       { name: "Ruby", icon: SiRuby, color: "#CC342D", url: "https://www.ruby-lang.org/" },
       { name: "SQL", icon: SiMysql, color: "#4479A1", url: "https://www.mysql.com/" }
     ]
@@ -38,6 +41,7 @@ const skills = [
     title: "Frontend & Tools",
     items: [
       { name: "React", icon: SiReact, color: "#61DAFB", url: "https://react.dev/" },
+      { name: "Next.js", icon: SiNextdotjs, color: "#000000", url: "https://nextjs.org/" },
       { name: "Astro", icon: SiAstro, color: "#FF5D01", url: "https://astro.build/" },
       { name: "TeX", icon: SiLatex, color: "#008080", url: "https://www.latex-project.org/" },
       { name: "Mermaid", icon: SiMermaid, color: "#FF3670", url: "https://www.mermaidchart.com/" },
