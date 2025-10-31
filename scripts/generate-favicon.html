@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>麻雀牌 中 ファビコン生成</title>
+</head>
+<body>
+    <canvas id="canvas" width="512" height="512"></canvas>
+    <br>
+    <button onclick="downloadFavicon()">ダウンロード favicon.ico</button>
+    <button onclick="downloadPNG()">ダウンロード icon.png</button>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // 背景（白い麻雀牌）
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, 512, 512);
+
+        // 縁取り（グレーの枠）
+        ctx.strokeStyle = '#CCCCCC';
+        ctx.lineWidth = 8;
+        ctx.strokeRect(10, 10, 492, 492);
+
+        // 内側の縁
+        ctx.strokeStyle = '#E5E5E5';
+        ctx.lineWidth = 4;
+        ctx.strokeRect(20, 20, 472, 472);
+
+        // 「中」の文字（緑色）
+        ctx.fillStyle = '#2F855A'; // 緑色
+        ctx.font = 'bold 380px serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('中', 256, 270);
+
+        function downloadFavicon() {
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'favicon.ico';
+                a.click();
+            });
+        }
+
+        function downloadPNG() {
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'icon-512.png';
+                a.click();
+            });
+        }
+    </script>
+</body>
+</html>
