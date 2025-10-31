@@ -6,7 +6,7 @@ import Image from "next/image"
 
 export function HeroSection() {
   const [displayText, setDisplayText] = useState("")
-  const fullText = "Engineer & Creator"
+  const fullText = "Engineer"
   
   useEffect(() => {
     let currentIndex = 0

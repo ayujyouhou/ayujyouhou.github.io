@@ -45,7 +45,7 @@ export function SocialLinksSection() {
             Connect With Me
           </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Find me across the web and stay updated with my latest projects and thoughts.
+            各SNSで最新の活動や情報を発信しています！
           </p>
         </motion.div>
 

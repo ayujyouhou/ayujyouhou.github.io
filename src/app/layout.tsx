@@ -9,8 +9,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ayujyouhou.github.io'),
-  title: "Ayu - Engineer & Student",
-  description: "東京大学理科一類在籍のエンジニア。Next.js、React、C++、Pythonを使用したWebアプリケーション開発と機械学習に取り組んでいます。42Tokyo、麻雀、数学コンテストなど幅広い分野で活動中。",
+  title: "Ayu - Engineer",
+  description: "東京大学理科一類在籍のエンジニア",
   keywords: ["Ayu", "Engineer", "東京大学", "Next.js", "React", "TypeScript", "42Tokyo", "Portfolio"],
   authors: [{ name: "Ayu" }],
   creator: "Ayu",
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
     url: "https://ayujyouhou.github.io",
-    title: "Ayu - Engineer & Student",
-    description: "東京大学理科一類在籍のエンジニア。Next.js、React、機械学習に取り組んでいます。",
+    title: "Ayu - Engineer",
+    description: "東京大学理科一類在籍のエンジニア",
     siteName: "Ayu Portfolio",
     images: [
       {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ayu - Engineer & Student",
+    title: "Ayu - Engineer",
     description: "東京大学理科一類在籍のエンジニア",
     images: ["/images/profile.jpg"],
   },

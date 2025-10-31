@@ -18,6 +18,7 @@ import {
   SiAstro,
   SiMermaid,
   SiAmazonwebservices,
+  SiGooglecloud,
   SiDocker,
   SiGithub
 } from "react-icons/si"
@@ -52,7 +53,8 @@ const skills = [
     icon: Rocket,
     title: "Infrastructure & Tools",
     items: [
-      { name: "AWS (EC2, Lambda, Bedrock ...)", icon: SiAmazonwebservices, color: "#FF9900", url: "https://aws.amazon.com/" },
+      { name: "AWS", icon: SiAmazonwebservices, color: "#FF9900", url: "https://aws.amazon.com/" },
+      { name: "GCP", icon: SiGooglecloud, color: "#4285F4", url: "https://cloud.google.com/" },
       { name: "Docker", icon: SiDocker, color: "#2496ED", url: "https://www.docker.com/" },
       { name: "GitHub", icon: SiGithub, color: "#181717", url: "https://github.com/" },
       { name: "Dify", icon: () => <Image src="/icons/dify.png" width={16} height={16} alt="Dify" className="w-4 h-4" />, color: "#1E40AF", url: "https://dify.ai/" }
@@ -104,7 +106,6 @@ export function AboutSection() {
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             エンジニアとして、アルゴリズム実装からWebアプリケーション開発、機械学習・データ分析まで幅広く学習しています。
-            42Tokyoでの学習を通じてC言語やシステムプログラミングの理解を深め、実務ではLLMやクラウドサービスを活用した業務効率化ツールの開発に取り組んでいます。
           </p>
         </motion.div>
 

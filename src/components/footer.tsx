@@ -18,7 +18,7 @@ export function Footer() {
             Let&apos;s Create Something Amazing Together
           </h3>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            新しいプロジェクトやコラボの機会をお探しでしたら、お気軽にお声がけください。
+            何かご質問やご相談がありましたら、お気軽にご連絡ください。
           </p>
           
           <motion.button

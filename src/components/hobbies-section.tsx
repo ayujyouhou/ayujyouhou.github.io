@@ -21,7 +21,7 @@ const hobbies = [
       {
         title: "雀魂牌譜屋",
         description: "雀魂での対戦記録と統計",
-        link: "https://ikeda.sapk.ch/player/101441809/26",
+        link: "https://amae-koromo.sapk.ch/player/101441809/12",
         icon: BarChart3
       },
       {
@@ -100,27 +100,6 @@ export function HobbiesSection() {
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
                   {hobby.description}
                 </p>
-
-                {/* Highlights */}
-                <div className="space-y-3 mb-6">
-                  <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                    Key Elements
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {hobby.highlights.map((highlight, highlightIndex) => (
-                      <motion.span
-                        key={highlight}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: index * 0.2 + highlightIndex * 0.1 }}
-                        viewport={{ once: true }}
-                        className={`px-3 py-1 rounded-full text-sm font-medium text-white bg-gradient-to-r ${hobby.gradient} shadow-sm`}
-                      >
-                        {highlight}
-                      </motion.span>
-                    ))}
-                  </div>
-                </div>
 
                 {/* Achievements */}
                 {hobby.achievements.length > 0 && (

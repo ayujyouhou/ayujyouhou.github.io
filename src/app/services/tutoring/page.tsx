@@ -162,7 +162,7 @@ export default function TutoringPage() {
               </h2>
               <div className="text-center">
                 <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">
-                  ¥2,500
+                  ¥4,000
                 </div>
                 <div className="text-gray-600 dark:text-gray-300 mb-4">/ 1時間</div>
                 <div className="text-sm text-gray-500 dark:text-gray-400">
@@ -179,16 +179,11 @@ export default function TutoringPage() {
                 対応時間
               </h2>
               <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-300">平日</span>
-                  <span className="font-medium text-gray-900 dark:text-white">17:00以降</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-300">休日</span>
-                  <span className="font-medium text-gray-900 dark:text-white">基本いつでも</span>
+                <div className="text-center">
+                  <span className="font-medium text-gray-900 dark:text-white text-lg">応相談</span>
                 </div>
                 <div className="text-sm text-gray-500 dark:text-gray-400 mt-4">
-                  詳しくはご連絡の際にお聞かせください
+                  ・詳しくはご連絡の際にお聞かせください
                 </div>
               </div>
             </CardContent>

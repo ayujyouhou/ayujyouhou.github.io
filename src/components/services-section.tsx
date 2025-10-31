@@ -97,11 +97,11 @@ export function ServicesSection() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                     <div>
                       <span className="font-medium text-gray-900 dark:text-white">料金:</span>
-                      <span className="text-gray-700 dark:text-gray-300 ml-2">2,500円/1時間</span>
+                      <span className="text-gray-700 dark:text-gray-300 ml-2">4,000円/1時間</span>
                     </div>
                     <div>
                       <span className="font-medium text-gray-900 dark:text-white">対応時間:</span>
-                      <span className="text-gray-700 dark:text-gray-300 ml-2">平日17:00以降、休日いつでも</span>
+                      <span className="text-gray-700 dark:text-gray-300 ml-2">応相談</span>
                     </div>
                   </div>
                 </div>

@@ -151,7 +151,7 @@ export function ContactSection() {
             Get In Touch
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            プロジェクトやコラボの機会、ご質問などがございましたら、お気軽にお声がけください。
+            何かご質問やご相談がありましたら、お気軽にご連絡ください。
           </p>
         </motion.div>
 

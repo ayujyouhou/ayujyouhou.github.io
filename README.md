@@ -15,11 +15,9 @@
 - **スムーズなアニメーション**: Framer Motion による洗練されたトランジション
 - **ダークモード対応**: システム設定に応じた自動切り替え
 - **レスポンシブデザイン**: モバイルからデスクトップまで最適化
-- **高いパフォーマンス**: Next.js 15 + Static Export による高速表示（スマホだとややラグい）
+- **高いパフォーマンス**: Next.js 15 + Static Export による高速表示
 - **SEO最適化**: メタデータ、OGP、構造化データ対応
 - **アクセシビリティ**: WCAG 2.1準拠のアクセシブルな設計
-- **ブログ機能**: MDX対応の記事投稿システム
-webeditorくらいの機能は実装しようと思っています。
 
 ## 🛠️ Tech Stack
 
@@ -32,7 +30,6 @@ webeditorくらいの機能は実装しようと思っています。
 - **Icons**: Lucide React
 
 ### Content Management
-- **Blog**: MDX (Markdown + JSX)
 - **Contact Form**: EmailJS integration
 
 ### Deployment
@@ -85,8 +82,6 @@ http://localhost:3000
 │   ├── components/             # Reactコンポーネント
 │   ├── lib/                    # ユーティリティ関数
 │   └── styles/                 # グローバルスタイル
-├── content/
-│   └── blog/                   # ブログ記事 (MDX)
 ├── public/                     # 静的ファイル
 ├── .github/workflows/          # GitHub Actions
 └── docs/                       # ドキュメント
@@ -98,19 +93,8 @@ http://localhost:3000
 - **AboutSection**: 自己紹介とスキル一覧
 - **ProjectsSection**: 主要プロジェクトの紹介
 - **HobbiesSection**: 趣味と実績の紹介
-- **BlogSection**: 学習記録とノート
+- **ServicesSection**: 提供サービスの案内
 - **ContactSection**: お問い合わせフォーム
-
-## 📖 Blog System
-
-このサイトには MDX ベースのブログシステムが組み込まれています。
-
-### 記事の追加方法
-1. `content/blog/` ディレクトリに `.mdx` ファイルを作成
-2. Frontmatter にメタデータを記述
-3. Markdown + JSX で記事を執筆
-
-詳細な手順は [BLOG_GUIDE.md](BLOG_GUIDE.md) をご覧ください。
 
 ## 🔧 Customization
 
